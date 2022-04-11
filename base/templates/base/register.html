@@ -1,0 +1,34 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <h1 style="margin-left: 2%;">Регистрация</h1>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form_grup">
+            <label>Имя пользователя</label>
+            <input class="form_input" type="text" name="username" value="" id="username">
+        </div>
+
+        <div class="form_grup">
+            <label>Пароль</label>
+            <input class="form_input" type="password" name="password1" value="" id="password1">
+        </div>
+
+        <div class="form_grup">
+            <label>Подтверждение пароля</label>
+            <input class="form_input" type="password" name="password2" value="" id="password2">
+        </div>
+
+        <input class="button" type="submit" value="Зарегистрироваться">
+    </form>
+    <p>Уже зарегистрированы? <a href="{% url 'login' %}">Войти</a></p>
+</div>
+
+
+
+
+{% endblock content %}

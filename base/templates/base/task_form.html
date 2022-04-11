@@ -1,0 +1,55 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Назад</a>
+</div>
+
+<style>
+    input[type=text] {
+        width: 100%;
+        padding: 5px 5px 5px 10px;
+        border: 1px solid #e0e0e0;
+        background-color: #e7e7e7;
+        outline: none;
+        transition: 0.3s;
+        border-radius: 3px;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px 0 5px 10px;
+        border: 1px solid #e0e0e0;
+        outline: none;
+        transition: 0.3s;
+        border-radius: 3px;
+        background-color: #e7e7e7
+    }
+
+    .card-body {
+        margin-left: 2%;
+    }
+
+</style>
+
+<div class="card-body">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+            <label>Задача</label>
+            {{form.title}}
+        </div>
+        <div>
+            <label>Описание</label>
+            {{form.description}}
+        </div>
+        <div>
+            <label>Готово {{form.complete}}</label>
+        <div>
+            <input class="button" type="submit" value="Сохранить">
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}
